@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const CusCreate = () => {
   const [id] = useState("");
   const [firstname, firstnamechange] = useState("");
+  const [lastname, lastnamechange] = useState("");
   const [mail, mailchange] = useState("");
   const [phonenumber, phonenumberchange] = useState("");
   const [address, addresschange] = useState("");
@@ -23,6 +24,7 @@ const CusCreate = () => {
     e.preventDefault();
     const cusdata = {
       firstname,
+      lastname,
       mail,
       phonenumber,
       address,
@@ -53,18 +55,7 @@ const CusCreate = () => {
                 <div className="row">
                   <div className="col-lg-10">
                     <div className="form-group">
-                      <label>ID</label>
-                      <input
-                        value={id}
-                        disabled="disabled"
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-10">
-                    <div className="form-group">
-                      <label>Name</label>
+                      <label>First Name</label>
                       <input
                         required
                         value={firstname}
@@ -75,6 +66,17 @@ const CusCreate = () => {
                       {firstname.length == 0 && validation && (
                         <span className="text-danger">Enter the name</span>
                       )}
+                    </div>
+                  </div>
+
+                  <div className="col-lg-10">
+                    <div className="form-group">
+                      <label>Last Name</label>
+                      <input
+                        value={lastname}
+                        onChange={(e) => lastnamechange(e.target.value)}
+                        className="form-control"
+                      ></input>
                     </div>
                   </div>
 

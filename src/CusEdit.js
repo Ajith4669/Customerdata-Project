@@ -17,6 +17,7 @@ const CusEdit = () => {
     const {
       id,
       firstname,
+      lastname,
       mail,
       phonenumber,
       address,
@@ -27,6 +28,7 @@ const CusEdit = () => {
     } = activeContact ?? {};
     idchange(id);
     firstnamechange(firstname);
+    lastnamechange(lastname);
     mailchange(mail);
     phonenumberchange(phonenumber);
     addresschange(address);
@@ -38,6 +40,7 @@ const CusEdit = () => {
 
   const [id, idchange] = useState("");
   const [firstname, firstnamechange] = useState("");
+  const [lastname, lastnamechange] = useState("");
   const [mail, mailchange] = useState("");
   const [phonenumber, phonenumberchange] = useState("");
   const [address, addresschange] = useState("");
@@ -55,6 +58,7 @@ const CusEdit = () => {
     const cusdata = {
       id,
       firstname,
+      lastname,
       mail,
       phonenumber,
       address,
@@ -101,7 +105,7 @@ const CusEdit = () => {
 
                   <div className="col-lg-12">
                     <div className="form-group">
-                      <label>Name</label>
+                      <label>First Name</label>
                       <input
                         required
                         value={firstname}
@@ -112,6 +116,17 @@ const CusEdit = () => {
                       {firstname.length == 0 && validation && (
                         <span className="text-danger">Enter the name</span>
                       )}
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <label>Last Name</label>
+                      <input
+                        value={lastname}
+                        onChange={(e) => lastnamechange(e.target.value)}
+                        className="form-control"
+                      ></input>
                     </div>
                   </div>
 

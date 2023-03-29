@@ -1,11 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Switch,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CusListing from "./CusListing";
 import CusCreate from "./CusCreate";
 import CusDetail from "./CusDetail";
@@ -18,10 +12,9 @@ import Navbar from "./navbar";
 
 function App() {
   useEffect(() => {
-    // const data = localStorage.getItem("usersDB");
-    // const parsedData = JSON.parse(data)
-    // if(parsedData?.length === 0)
-    {
+    const data = localStorage.getItem("usersDB");
+    const parsedData = JSON.parse(data);
+    if (parsedData?.length === 0) {
       localStorage.setItem("usersDB", JSON.stringify(customerData));
     }
   }, []);

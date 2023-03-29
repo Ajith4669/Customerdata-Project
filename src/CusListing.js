@@ -12,7 +12,7 @@ const CusListing = () => {
   const Edit = (id) => {
     navigate("/customer/edit/" + id);
   };
-  const Remove = (id) => {
+  const Delete = (id) => {
     if (window.confirm("Do you want to remove?")) {
       let updatedData = cusdata;
       updatedData = updatedData.filter((user) => user.id != id);
@@ -33,26 +33,7 @@ const CusListing = () => {
     setCustomerData(parsedData);
     console.log(parsedData);
   };
-
   const [data, setdata] = useState(customerData);
-  const [order, setorder] = useState("ASC");
-  const sorting = (col) => {
-    if (order === "ASC") {
-      const sorted = [...data].sort((a, b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted);
-      setorder("DSC");
-    }
-
-    if (order === "DSC") {
-      const sorted = [...data].sort((a, b) =>
-        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted);
-      setorder("ASC");
-    }
-  };
   return (
     <div className="container">
       <div className="card">
@@ -72,24 +53,26 @@ const CusListing = () => {
           <table className="table table-bordered">
             <thead className="bg-dark text-white">
               <tr>
-                <th onClick={() => sorting("id")}>Id</th>
-                <th onClick={() => sorting("firstname")}>NAME</th>
-                <th onClick={() => sorting("mail")}>MAIL</th>
-                <th onClick={() => sorting("phonenumber")}>CONTACT</th>
-                <th onClick={() => sorting("address")}>ADDRESS</th>
-                <th onClick={() => sorting("city")}>CITY</th>
-                <th onClick={() => sorting("state")}>STATE</th>
-                <th onClick={() => sorting("country")}>COUNTRY</th>
-                <th onClick={() => sorting("postalcode")}>POSTALCODE</th>
-                <th>Action</th>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Surname</td>
+                <td>Email</td>
+                <td>Contact</td>
+                <td>Address</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Country</td>
+                <td>PostalCode</td>
+                <td>Action</td>
               </tr>
             </thead>
             <tbody>
               {cusdata &&
-                cusdata?.map((item, index) => (
+                cusdata?.map((item) => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.firstname}</td>
+                    <td>{item.lastname}</td>
                     <td>{item.mail}</td>
                     <td>{item.phonenumber}</td>
                     <td>{item.address}</td>
@@ -118,11 +101,11 @@ const CusListing = () => {
                       </a>
                       <a
                         onClick={() => {
-                          Remove(item.id);
+                          Delete(item.id);
                         }}
                         className="btn btn-danger"
                       >
-                        Remove
+                        Delete
                       </a>
                     </td>
                   </tr>

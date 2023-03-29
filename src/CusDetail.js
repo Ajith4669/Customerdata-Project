@@ -14,8 +14,8 @@ const CusDetail = () => {
     const userDb = await localStorage.getItem("usersDB");
     console.log(JSON.parse(userDb));
     const parsedata = JSON.parse(userDb);
-    const activeContact = parsedata?.find((user) => user.id == cusid);
-    cusdatachange(activeContact);
+    const Contact = parsedata?.find((user) => user.id == cusid);
+    cusdatachange(Contact);
   };
   return (
     <div>
@@ -31,6 +31,7 @@ const CusDetail = () => {
               <h4>
                 Customer Name - <b>{cusdata.firstname}</b>
               </h4>
+              <h6>Surname : {cusdata.lastname}</h6>
               <h6>Email : {cusdata.mail}</h6>
               <h6>Contact : {cusdata.phonenumber}</h6>
               <h6>Address : {cusdata.address}</h6>

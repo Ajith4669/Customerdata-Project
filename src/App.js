@@ -12,9 +12,10 @@ import Navbar from "./navbar";
 
 function App() {
   useEffect(() => {
-    const data = localStorage.getItem("usersDB");
-    const parsedData = JSON.parse(data);
-    if (parsedData?.length === 0) {
+    // const data = localStorage.getItem("usersDB");
+    // const parsedData = JSON.parse(data);
+    // if (parsedData?.length === 0)
+    {
       localStorage.setItem("usersDB", JSON.stringify(customerData));
     }
   }, []);

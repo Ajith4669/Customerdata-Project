@@ -4,4 +4,4 @@ In this project, some default data have stored in localstorage space and it has 
 
 # Note
 
-If data is not fetched in the table from local storage, please in app.js comment 15,16,and 17 line for default data to be fetch from mockData.
+After default data is loaded, please uncomment 15,16,and 17 line in app.js for saving the data in local storage.

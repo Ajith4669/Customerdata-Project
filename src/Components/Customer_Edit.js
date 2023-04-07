@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const CusEdit = () => {
-  const { cusid } = useParams();
+const CustomerEdit = () => {
+  const { customerid } = useParams();
 
   useEffect(() => {
     getUserData();
@@ -12,7 +12,7 @@ const CusEdit = () => {
     const userDb = await localStorage.getItem("usersDB");
     console.log(JSON.parse(userDb));
     const parsedata = JSON.parse(userDb);
-    const activeContact = parsedata?.find((user) => user.id == cusid);
+    const activeContact = parsedata?.find((user) => user.id == customerid);
 
     const {
       id,
@@ -55,7 +55,7 @@ const CusEdit = () => {
   const handlesubmit = async (e) => {
     const userDb = await localStorage.getItem("usersDB");
     let parsedata = JSON.parse(userDb);
-    const cusdata = {
+    const customerdata = {
       id,
       firstname,
       lastname,
@@ -67,17 +67,17 @@ const CusEdit = () => {
       country,
       postalcode,
     };
-    const udatedUserDb = parsedata?.map((item) => {
+    const updatedUserDb = parsedata?.map((item) => {
       var updatedData = item;
       if (item?.id === id) {
-        updatedData = cusdata;
+        updatedData = customerdata;
       }
 
       return updatedData;
     });
 
-    console.log(udatedUserDb);
-    localStorage.setItem("usersDB", JSON.stringify(udatedUserDb));
+    console.log(updatedUserDb);
+    localStorage.setItem("usersDB", JSON.stringify(updatedUserDb));
     navigate("/");
     e.preventDefault();
   };
@@ -227,4 +227,4 @@ const CusEdit = () => {
   );
 };
 
-export default CusEdit;
+export default CustomerEdit;

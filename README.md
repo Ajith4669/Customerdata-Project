@@ -4,4 +4,4 @@ In this project, some default data have stored in localstorage space and it has 
 
 # Note
 
-After default data is loaded, please uncomment 15,16,and 17 line in app.js for saving the data in local storage.
+After default data is loaded, please uncomment 15,16,and 17 line in App.js for saving the data in local storage.

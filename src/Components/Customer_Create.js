@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CusCreate = () => {
+const CustomerCreate = () => {
   const [id] = useState("");
   const [firstname, firstnamechange] = useState("");
   const [lastname, lastnamechange] = useState("");
@@ -64,7 +64,9 @@ const CusCreate = () => {
                         className="form-control"
                       ></input>
                       {firstname.length == 0 && validation && (
-                        <span className="text-danger">Enter the name</span>
+                        <span className="text-danger">
+                          Enter the First Name
+                        </span>
                       )}
                     </div>
                   </div>
@@ -73,6 +75,7 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>Last Name</label>
                       <input
+                        required
                         value={lastname}
                         onChange={(e) => lastnamechange(e.target.value)}
                         className="form-control"
@@ -87,6 +90,7 @@ const CusCreate = () => {
                         value={mail}
                         onChange={(e) => mailchange(e.target.value)}
                         className="form-control"
+                        required
                       ></input>
                     </div>
                   </div>
@@ -95,9 +99,11 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>Phone</label>
                       <input
+                        required
                         value={phonenumber}
                         onChange={(e) => phonenumberchange(e.target.value)}
                         className="form-control"
+                        pattern="[0-9]*"
                       ></input>
                     </div>
                   </div>
@@ -106,6 +112,7 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>Address</label>
                       <input
+                        required
                         value={address}
                         onChange={(e) => addresschange(e.target.value)}
                         className="form-control"
@@ -117,6 +124,7 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>City</label>
                       <input
+                        required
                         value={city}
                         onChange={(e) => citychange(e.target.value)}
                         className="form-control"
@@ -128,6 +136,7 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>State</label>
                       <input
+                        required
                         value={state}
                         onChange={(e) => statechange(e.target.value)}
                         className="form-control"
@@ -139,6 +148,7 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>Country</label>
                       <input
+                        required
                         value={country}
                         onChange={(e) => countrychange(e.target.value)}
                         className="form-control"
@@ -150,9 +160,11 @@ const CusCreate = () => {
                     <div className="form-group">
                       <label>PostalCode</label>
                       <input
+                        required
                         value={postalcode}
                         onChange={(e) => postalcodechange(e.target.value)}
                         className="form-control"
+                        pattern="[0-9]*"
                       ></input>
                     </div>
                   </div>
@@ -177,4 +189,4 @@ const CusCreate = () => {
   );
 };
 
-export default CusCreate;
+export default CustomerCreate;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { customerData } from "./mockData";
+import { customerData } from "../mockData";
 
-const CusListing = () => {
-  const [cusdata, setCustomerData] = useState(null);
+const CustomerListing = () => {
+  const [customerdata, setCustomerData] = useState(null);
   const navigate = useNavigate();
 
   const View = (id) => {
@@ -14,7 +14,7 @@ const CusListing = () => {
   };
   const Delete = (id) => {
     if (window.confirm("Do you want to remove?")) {
-      let updatedData = cusdata;
+      let updatedData = customerdata;
       updatedData = updatedData.filter((user) => user.id != id);
       setCustomerData(updatedData);
       console.log(updatedData);
@@ -67,8 +67,8 @@ const CusListing = () => {
               </tr>
             </thead>
             <tbody>
-              {cusdata &&
-                cusdata?.map((item) => (
+              {customerdata &&
+                customerdata?.map((item) => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.firstname}</td>
@@ -118,4 +118,4 @@ const CusListing = () => {
   );
 };
 
-export default CusListing;
+export default CustomerListing;

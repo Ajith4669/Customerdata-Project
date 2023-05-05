@@ -15,7 +15,6 @@ function App() {
     // const data = localStorage.getItem("usersDB");
     // const parsedData = JSON.parse(data);
     // if (parsedData?.length === 0)
-
     {
       localStorage.setItem("usersDB", JSON.stringify(customerData));
     }
@@ -25,7 +24,6 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-
         <Routes>
           <Route path="/" element={<CustomerListing />}></Route>
           <Route path="/customer/create" element={<CustomerCreate />}></Route>

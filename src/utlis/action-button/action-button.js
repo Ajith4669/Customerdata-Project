@@ -9,7 +9,7 @@ import {
   FundViewOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
-import { Tooltip, Button, Modal } from "antd";
+// import { Tooltip, Button, Modal } from "antd";
 const { confirm } = Modal;
 const showDeleteConfirm = (okCallBack) => {
   confirm({
